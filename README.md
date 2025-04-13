@@ -3,7 +3,7 @@
 An LLM-powered BD/IR assistant that scrapes company data, transforms it with dbt, stores it in Databricks, and generates investor-ready briefs using LangChain and Azure OpenAI.
 
 ## What It Does
-InvestorBrief.AI simulates how BD/IR teams at Mubadala Capital can automate company research workflows by combining real-time data ingestion with GenAI summarization and Q&A.
+InvestorBrief.AI simulates how BD/IR teams can automate company research workflows by combining real-time data ingestion with GenAI summarization and Q&A.
 
 ## Features
 - Scrape live company data from sources like Crunchbase and Yahoo Finance
