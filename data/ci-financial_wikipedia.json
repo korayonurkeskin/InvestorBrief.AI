@@ -1,0 +1,41 @@
+{
+  "summary": "CI Financial is a Canadian investment management company based in Toronto, Ontario. It offers investment management and wealth management services targeted to high net worth retail investors, as well as brokerage and trading services to portfolio managers and institutional investors.",
+  "company_type": "Public",
+  "traded_as": {
+    "TSX": "CIX",
+    "NYSE": "CIXX"
+  },
+  "industry": "Investment management",
+  "founded": "1965; 60 years ago (1965) (as Universal Savings Fund Management Limited)",
+  "founder": "G. Raymond Chang",
+  "headquarters": "Toronto, Ontario, Canada",
+  "key_people": [
+    {
+      "name": "Kurt MacAlpine",
+      "title": "CEO"
+    },
+    {
+      "name": "Amit Muni",
+      "title": "CFO"
+    },
+    {
+      "name": "Darie Urbanky",
+      "title": "COO"
+    }
+  ],
+  "aum": "CA$450.0 billion",
+  "number_of_employees": "1,490 (2020)",
+  "divisions": [
+    "CI Global Asset Management",
+    "CI Assante Wealth Management",
+    "CI Direct Investing",
+    "CI Investment Services",
+    "CI Private Wealth"
+  ],
+  "website": "https://www.cifinancial.com/",
+  "financial_firm": "BPI Financial Corp[9]",
+  "financial_year_established": "1993",
+  "financial_year_of_amalgamation": "1999",
+  "financial_merged_into": "CI Global Asset Management (CI Investments)",
+  "source_url": "https://en.wikipedia.org/wiki/CI_Financial"
+}
