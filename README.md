@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # InvestorBrief.AI
 
 An LLM-powered BD/IR assistant that scrapes company data, transforms it with dbt, stores it in Databricks, and generates investor-ready briefs using LangChain and Azure OpenAI.
