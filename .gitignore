@@ -1,0 +1,10 @@
+# Prevent API keys and environment config from being committed
+.env
+venv/
+
+# Ignore Python cache and artifacts
+__pycache__/
+*.pyc
+
+# VS Code settings (optional)
+.vscode/
