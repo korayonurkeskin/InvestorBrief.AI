@@ -110,13 +110,12 @@ def scrape_company_wikipedia(url):
             if len(rows) > 1:  # Has header and data rows
                 headers = [th.get_text().strip().lower() for th in rows[0].find_all(["th"])]
                 if headers and rows[1].find_all(["td", "th"]):
-                    data_cells = [td.get_text().strip() for td in rows[1].find_all(["td", "th"])]
+                    data_cells = [clean_text(td.get_text()) for td in rows[1].find_all(["td", "th"])]
                     for i, header in enumerate(headers):
                         if i < len(data_cells):
                             key = header.replace(" ", "_").replace("(", "").replace(")", "")
                             company_info[f"financial_{key}"] = data_cells[i]
     except:
-        # ignore if financial data extraction fails
         pass
 
     # add source URL
