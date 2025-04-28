@@ -1,5 +1,7 @@
-**InvestorBrief.AI** is a Python-based project that generates professional investor briefs for target companies by combining **Wikipedia-sourced data**, **live Yahoo Finance metrics**, and **strategic analysis** using **LangChain** + **Azure OpenAI**.  
-The project is fully automated — from scraping, financial analysis, brief generation, and visualization through a **Streamlit** web app.
+## InvestorBrief.AI
+
+InvestorBrief.AI is a fully automated Python-based tool that generates professional-grade investor briefs by combining Wikipedia company data, live Yahoo Finance metrics, and LLM-powered strategic analysis using LangChain and Azure OpenAI.
+The entire pipeline from data scraping and financial analysis to brief generation runs seamlessly with a single command.
 
 ---
 
@@ -18,15 +20,15 @@ The project is fully automated — from scraping, financial analysis, brief gene
    - Automatically craft a Mubadala-style internal investor memo using LangChain prompts and Azure OpenAI's LLMs, with SWOT, Strategic Fit, and Financial Snapshot sections.
 
 4. **Visualize the Output**
-   - Instantly launch a **Streamlit** web app to view the brief in an organized and investor-ready markdown layout.
+   - Instantly launches a Streamlit web app to view the brief in a clean, investor-ready markdown layout.
 
 ---
 
 ## Tech Stack
 
-- **Python**: Core scripting
+- **Python**: Core automation and orchestration
 - **BeautifulSoup**: Wikipedia scraping
-- **YFinanceAPI**: Financial data extraction
+- **YFinanceAPI**: Live financial data extraction
 - **LangChain** + **Azure OpenAI**: LLM-powered memo generation
 - **Streamlit**: Local web app for viewing the briefs
 - **dotenv**: Environment variable management
