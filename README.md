@@ -1,4 +1,3 @@
-=======
 **InvestorBrief.AI** is a Python-based project that generates professional investor briefs for target companies by combining **Wikipedia-sourced data**, **live Yahoo Finance metrics**, and **strategic analysis** using **LangChain** + **Azure OpenAI**.  
 The project is fully automated — from scraping, financial analysis, brief generation, and visualization through a **Streamlit** web app.
 
