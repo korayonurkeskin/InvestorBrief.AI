@@ -56,12 +56,12 @@ def format_financials_string(financials):
     def safe_format(val):
         return f"{val:,.0f}" if isinstance(val, (int, float)) else "N/A"
 
-    return f"""
-- Market Cap: ${safe_format(financials['market_cap'])}
-- P/E Ratio (TTM): {financials['pe_ratio'] or 'N/A'}
-- Revenue (TTM): ${safe_format(financials['revenue'])}
-- Net Income (TTM): ${safe_format(financials['net_income'])}
-- EBITDA: ${safe_format(financials['ebitda'])}
-- YoY Revenue Growth: {financials['yoy_revenue_growth']}%
-- 5-Year Stock Price Growth: {financials['price_growth_5y']}%
-"""
+    return f"""```
+Market Cap: ${safe_format(financials['market_cap'])}
+P/E Ratio (TTM): {financials['pe_ratio'] or 'N/A'}
+Revenue (TTM): ${safe_format(financials['revenue'])}
+Net Income (TTM): ${safe_format(financials['net_income'])}
+EBITDA: ${safe_format(financials['ebitda'])}
+YoY Revenue Growth: {financials['yoy_revenue_growth']}%
+5-Year Stock Price Growth: {financials['price_growth_5y']}%
+```"""

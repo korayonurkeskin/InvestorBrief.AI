@@ -5,7 +5,6 @@ import os
 import re
 
 def clean_text(text):
-    # Remove reference markers and non-breaking spaces
     text = re.sub(r'\[\d+\]', '', text)
     text = text.replace('\xa0', ' ').strip()
     return text
@@ -18,7 +17,6 @@ def scrape_company_wikipedia(url):
     soup = BeautifulSoup(response.content, "html.parser")
     company_info = {}
     
-    # first paragraph summary
     paragraphs = soup.select("div.mw-parser-output > p")
     for para in paragraphs:
         if para.text.strip():
@@ -118,7 +116,6 @@ def scrape_company_wikipedia(url):
     except:
         pass
 
-    # add source URL
     company_info["source_url"] = url
     
     return company_info

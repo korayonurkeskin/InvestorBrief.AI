@@ -1,7 +1,6 @@
 import sys
 from pathlib import Path
 
-# Ensure root folder is in Python path
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
 import json
@@ -11,30 +10,28 @@ from langchain_core.prompts import PromptTemplate
 from langchain_openai import AzureChatOpenAI
 from finance.yahoo_financials import get_all_financial_data, format_financials_string
 
-
 load_dotenv()
 
-try:
-    # Load structured Wikipedia data
-    data_file = "data/ci-financial_wikipedia.json"
-    with open(data_file, "r", encoding="utf-8") as f:
-        company = json.load(f)
+def generate_brief(data_file="data/ci-financial_wikipedia.json"):
+    try:
+        with open(data_file, "r", encoding="utf-8") as f:
+            company = json.load(f)
 
-    # Format key people
-    key_people = company.get("key_people", [])
-    key_people_str = ", ".join(
-        f"{p['name']} ({p['title']})" for p in key_people if p.get("name")
-    )
+        if not company.get("summary"):
+            raise ValueError("Wikipedia data is incomplete or malformed.")
 
-    # Fetch and format financial data from Yahoo Finance
-    ticker_symbol = "CIX.TO"
-    financial_data = get_all_financial_data(ticker_symbol)
-    formatted_financials = format_financials_string(financial_data)
+        key_people = company.get("key_people", [])
+        key_people_str = ", ".join(
+            f"{p['name']} ({p['title']})" for p in key_people if p.get("name")
+        )
 
-    # Define LangChain prompt
-    prompt = PromptTemplate(
-        input_variables=["summary", "industry", "headquarters", "aum", "key_people", "financials"],
-        template="""
+        ticker_symbol = "CIX.TO"
+        financial_data = get_all_financial_data(ticker_symbol)
+        formatted_financials = format_financials_string(financial_data)
+
+        prompt = PromptTemplate(
+            input_variables=["summary", "industry", "headquarters", "aum", "key_people", "financials"],
+            template="""
 You are a Data Analyst at Mubadala Capital preparing a memo for the BD/IR team.
 
 Using the structured company data below, generate an internal investor brief with clear strategic analysis and investor-ready tone.
@@ -85,43 +82,39 @@ Structured Company Data:
 - AUM: {aum}  
 - Key People: {key_people}
 """
-    )
+        )
 
-    # Fill the prompt with data
-    filled_prompt = prompt.format(
-        summary=company.get("summary", ""),
-        industry=company.get("industry", ""),
-        headquarters=company.get("headquarters", ""),
-        aum=company.get("aum", company.get("assets_under_management", "")),
-        key_people=key_people_str,
-        financials=formatted_financials
-    )
+        filled_prompt = prompt.format(
+            summary=company.get("summary", ""),
+            industry=company.get("industry", ""),
+            headquarters=company.get("headquarters", ""),
+            aum=company.get("aum", company.get("assets_under_management", "")),
+            key_people=key_people_str,
+            financials=formatted_financials
+        )
 
-    # Initialize Azure OpenAI model
-    llm = AzureChatOpenAI(
-        azure_endpoint=os.environ.get("AZURE_OPENAI_ENDPOINT"),
-        api_key=os.environ.get("AZURE_OPENAI_API_KEY"),
-        api_version=os.environ.get("AZURE_OPENAI_API_VERSION"),
-        deployment_name=os.environ.get("AZURE_OPENAI_DEPLOYMENT_NAME"),
-        temperature=0.3
-    )
+        llm = AzureChatOpenAI(
+            azure_endpoint=os.environ.get("AZURE_OPENAI_ENDPOINT"),
+            api_key=os.environ.get("AZURE_OPENAI_API_KEY"),
+            api_version=os.environ.get("AZURE_OPENAI_API_VERSION"),
+            deployment_name=os.environ.get("AZURE_OPENAI_DEPLOYMENT_NAME"),
+            temperature=0.3
+        )
 
-    # Generate response
-    response = llm.invoke(filled_prompt)
+        response = llm.invoke(filled_prompt)
 
-    # Save output
-    output_dir = "output"
-    Path(output_dir).mkdir(exist_ok=True)
-    output_path = os.path.join(output_dir, f"{Path(data_file).stem}_brief.md")
+        output_dir = "output"
+        Path(output_dir).mkdir(exist_ok=True)
+        output_path = os.path.join(output_dir, f"{Path(data_file).stem}_brief.md")
 
-    with open(output_path, "w", encoding="utf-8") as f:
-        f.write(response.content)
+        with open(output_path, "w", encoding="utf-8") as f:
+            f.write(response.content)
 
-    print(f"✅ Investor brief saved to {output_path}")
+        print(f"✅ Investor brief saved to {output_path}")
 
-except FileNotFoundError:
-    print(f"❌ Error: Could not find the data file at {data_file}")
-except json.JSONDecodeError:
-    print(f"❌ Error: The data file contains invalid JSON")
-except Exception as e:
-    print(f"❌ Error: {str(e)}")
+    except FileNotFoundError:
+        print(f"❌ Error: Could not find the data file at {data_file}")
+    except json.JSONDecodeError:
+        print(f"❌ Error: The data file contains invalid JSON")
+    except Exception as e:
+        print(f"❌ Error: {str(e)}")
