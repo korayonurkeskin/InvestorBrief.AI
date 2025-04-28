@@ -30,4 +30,3 @@ The project is fully automated — from scraping, financial analysis, brief gene
 - **LangChain** + **Azure OpenAI**: LLM-powered memo generation
 - **Streamlit**: Local web app for viewing the briefs
 - **dotenv**: Environment variable management
-  > > > > > > > 0507a0769b7b5881136606966ddfb60b05a3214a
