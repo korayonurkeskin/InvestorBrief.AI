@@ -1,41 +1,31 @@
-# InvestorBrief.AI
+# CompanyBrief.AI 🚀
 
-An LLM-powered BD/IR assistant that scrapes company data, transforms it with dbt, stores it in Databricks, and generates investor-ready briefs using LangChain and Azure OpenAI.
+📈 **CompanyBrief.AI** is a Python-based project that generates professional investor briefs for target companies by combining **Wikipedia-sourced data**, **live Yahoo Finance metrics**, and **strategic analysis** using **LangChain** + **Azure OpenAI**.  
+The project is fully automated — from scraping, financial analysis, brief generation, and visualization through a **Streamlit** web app.
 
-## What It Does
-InvestorBrief.AI simulates how BD/IR teams can automate company research workflows by combining real-time data ingestion with GenAI summarization and Q&A.
+---
 
-## Features
-- Scrape live company data from sources like Crunchbase and Yahoo Finance
-- Build a modular data pipeline using Python, SQL, and dbt-core
-- Store cleaned data in Databricks for scalable access
-- Use LangChain + Azure OpenAI to generate:
-  - Executive summaries
-  - Investor brief templates
-  - Mock Q&A for IR teams
+## 🛠️ How It Works
 
-## Tech Stack
-- **Languages:** Python, SQL
-- **LLM Tools:** Azure OpenAI, LangChain, crew.ai
-- **Data & Storage:** dbt-core, Databricks, SQLite (for local demo)
-=======
-# InvestorBrief.AI
+1. **Scrape Company Information**  
+   - Extract structured company metadata (industry, leadership, AUM, etc.) from the company's Wikipedia page.
 
-An LLM-powered BD/IR assistant that scrapes company data, transforms it with dbt, stores it in Databricks, and generates investor-ready briefs using LangChain and Azure OpenAI.
+2. **Fetch Financial Metrics**  
+   - Pull real-time financial data such as Market Cap, P/E Ratio, Revenue, Net Income, EBITDA, YoY Revenue Growth, and 5-Year Stock Price Growth from Yahoo Finance.
 
-## What It Does
-InvestorBrief.AI simulates how BD/IR teams can automate company research workflows by combining real-time data ingestion with GenAI summarization and Q&A.
+3. **Generate Investor Brief**  
+   - Automatically craft a Mubadala-style internal investor memo using LangChain prompts and Azure OpenAI's LLMs, with SWOT, Strategic Fit, and Financial Snapshot sections.
 
-## Features
-- Scrape live company data from sources like Crunchbase and Yahoo Finance
-- Build a modular data pipeline using Python, SQL, and dbt-core
-- Store cleaned data in Databricks for scalable access
-- Use LangChain + Azure OpenAI to generate:
-  - Executive summaries
-  - Investor brief templates
-  - Mock Q&A for IR teams
+4. **Visualize the Output**  
+   - Instantly launch a **Streamlit** web app to view the brief in an organized and investor-ready markdown layout.
 
-## Tech Stack
-- **Languages:** Python, SQL
-- **LLM Tools:** Azure OpenAI, LangChain, crew.ai
-- **Data & Storage:** dbt-core, Databricks, SQLite (for local demo)
+---
+
+## 🧰 Tech Stack
+
+- **Python**: Core scripting
+- **BeautifulSoup**: Wikipedia scraping
+- **YFinanceAPI**: Financial data extraction
+- **LangChain** + **Azure OpenAI**: LLM-powered memo generation
+- **Streamlit**: Local web app for viewing the briefs
+- **dotenv**: Environment variable management
