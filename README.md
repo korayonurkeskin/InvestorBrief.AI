@@ -1,11 +1,11 @@
-# CompanyBrief.AI 🚀
+# InvestorBrief.AI
 
-📈 **CompanyBrief.AI** is a Python-based project that generates professional investor briefs for target companies by combining **Wikipedia-sourced data**, **live Yahoo Finance metrics**, and **strategic analysis** using **LangChain** + **Azure OpenAI**.  
+**CompanyBrief.AI** is a Python-based project that generates professional investor briefs for target companies by combining **Wikipedia-sourced data**, **live Yahoo Finance metrics**, and **strategic analysis** using **LangChain** + **Azure OpenAI**.  
 The project is fully automated — from scraping, financial analysis, brief generation, and visualization through a **Streamlit** web app.
 
 ---
 
-## 🛠️ How It Works
+## How It Works
 
 1. **Scrape Company Information**  
    - Extract structured company metadata (industry, leadership, AUM, etc.) from the company's Wikipedia page.
@@ -21,7 +21,7 @@ The project is fully automated — from scraping, financial analysis, brief gene
 
 ---
 
-## 🧰 Tech Stack
+## Tech Stack
 
 - **Python**: Core scripting
 - **BeautifulSoup**: Wikipedia scraping
